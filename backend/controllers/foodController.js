@@ -4,7 +4,7 @@ import foodModel from "../models/foodModel.js";
 
 //add food item
 
-export const addFood = async (req, res) => {
+const addFood = async (req, res) => {
     try {
       const { name, description, price } = req.body;
   
