@@ -4,28 +4,29 @@ import foodModel from "../models/foodModel.js";
 
 //add food item
 
-export const addFood = async (req, res) => {
-    try {
-      const { name, description, price } = req.body;
-  
-      // Get the Cloudinary image URL from the request
-      const imageUrl = req.file.path;  // This is the Cloudinary URL
-  
-      // Save food item with image URL in database
-      const newFoodItem = new Food({
-        name,
-        description,
-        price,
-        image: imageUrl, // Save the Cloudinary URL in the database
-      });
-  
-      await newFoodItem.save();
-      res.status(201).json(newFoodItem); // Return the newly added food item
-    } catch (error) {
-      console.error(error);
-      res.status(500).json({ message: "Error adding food item" });
-    }
-  };
+const addFood = async (req, res) => {
+  try {
+    const { name, description, price, category  } = req.body;
+
+    // Cloudinary image URL
+    const imageUrl = req.file.path;
+
+    const newFoodItem = new foodModel({
+      name,
+      description,
+      price,
+      image: imageUrl,
+      category, 
+    });
+
+    await newFoodItem.save();
+    res.status(201).json(newFoodItem);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "Error adding food item" });
+  }
+};
+
   
 
 // all food list

@@ -24,14 +24,18 @@ app.use("/api/user", userRouter)
 app.use("/api/cart", cartRouter)
 app.use("/api/order", orderRouter)
 
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+
 app.get("/", (req, res) => {
     res.send("API Working")
 })
 
-// ⚠️ REMOVE app.listen() – Vercel will handle it
-// app.listen(4000, () => {
-//     console.log(`Server Started on http://localhost:4000`)
-// })
+
+app.listen(4000, () => {
+    console.log(`Server Started on http://localhost:4000`)
+})
 
 // ✅ Export app for Vercel
 export default app
