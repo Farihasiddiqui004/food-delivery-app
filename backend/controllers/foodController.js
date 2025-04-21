@@ -1,12 +1,10 @@
 import { log } from "console";
 import foodModel from "../models/foodModel.js";
-//import fs from 'fs'
 
-//add food item
-
+// Add food item
 const addFood = async (req, res) => {
   try {
-    const { name, description, price, category  } = req.body;
+    const { name, description, price, category } = req.body;
 
     // Cloudinary image URL
     const imageUrl = req.file.path;
@@ -16,7 +14,7 @@ const addFood = async (req, res) => {
       description,
       price,
       image: imageUrl,
-      category, 
+      category,
     });
 
     await newFoodItem.save();
@@ -27,34 +25,28 @@ const addFood = async (req, res) => {
   }
 };
 
-  
-
-// all food list
-const listFood = async (req,res) =>{
-    try {
-        const foods = await foodModel.find({});
-        res.json({success:true,data:foods})
-    } catch (error) {
-        console.log(error);
-        res.json({success:false,message:"Error"})
-        
-    }
-}
-
-// remove food item
-
-const removeFood = async (req, res) => {
-    try {
-        const food = await foodModel.findById(req.body.id);
-        // fs.unlink(`uploads/${food.image}`,()=>{}) // comment this line
-
-        await foodModel.findByIdAndDelete(req.body.id);
-        res.json({ success: true, message: "Food Removed" });
-    } catch (error) {
-        console.log(error);
-        res.json({ success: false, message: "Error" });
-    }
+// Get all food list
+const listFood = async (req, res) => {
+  try {
+    const foods = await foodModel.find({});
+    res.json({ success: true, data: foods });
+  } catch (error) {
+    console.log(error);
+    res.json({ success: false, message: "Error" });
+  }
 };
 
+// Remove food item
+const removeFood = async (req, res) => {
+  try {
+    const food = await foodModel.findById(req.body.id);
+    await foodModel.findByIdAndDelete(req.body.id);
+    res.json({ success: true, message: "Food Removed" });
+  } catch (error) {
+    console.log(error);
+    res.json({ success: false, message: "Error" });
+  }
+};
 
-export {addFood,listFood,removeFood}
+export { addFood, listFood, removeFood };
+
