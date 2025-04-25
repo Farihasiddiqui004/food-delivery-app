@@ -7,7 +7,7 @@ export const StoreContext = createContext(null)
 const StoreContextProvider = (props) => {
 
     const [cartItems, setCartItems] = useState({});
-    const url = "http://localhost:4000"
+    const url = import.meta.env.VITE_BACKEND_URL
     const [token, setToken] = useState("")
     const [food_list, setFoodList] = useState([])
 
@@ -94,3 +94,5 @@ const StoreContextProvider = (props) => {
 }
 
 export default StoreContextProvider
+
+//https://food-delivery-app-farihas-projects-75e0a711.vercel.app

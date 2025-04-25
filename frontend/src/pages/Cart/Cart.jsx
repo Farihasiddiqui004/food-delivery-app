@@ -27,7 +27,7 @@ const Cart = () => {
             return (
               <div key={item._id}> {/* Add unique key here */}
                 <div className='cart-items-title cart-items-item'>
-                  <img src={url + "/images/" + item.image} alt={item.name} />
+                  <img src={item.image} alt={item.name} />
                   <p>{item.name}</p>
                   <p>${item.price}</p>
                   <p>{cartItems[item._id]}</p>
