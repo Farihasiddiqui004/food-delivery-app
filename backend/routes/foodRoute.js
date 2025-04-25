@@ -1,3 +1,5 @@
+import dotenv from "dotenv";
+dotenv.config();
 import express from "express";
 import multer from "multer";
 import { v2 as cloudinary } from "cloudinary";
@@ -11,19 +13,24 @@ cloudinary.config({
   api_secret: process.env.CLOUD_API_SECRET,
 });
 
+if (!process.env.CLOUD_NAME || !process.env.CLOUD_API_KEY || !process.env.CLOUD_API_SECRET) {
+  console.error("cloudinary credentials are missing from the enviroment variable");
+  process.exit(1);
+}
+
 // Cloudinary storage engine for Multer
 const storage = new CloudinaryStorage({
   cloudinary: cloudinary,
   params: {
     folder: "food_images", // The folder in Cloudinary where images will be stored
     allowed_formats: ["jpg", "png", "jpeg"], // Allowed image formats
-    public_id: (req, file) => `${Date.now()}-${file.originalname}`, // Unique public ID for each file
+    
   },
 });
 
 const upload = multer({
   storage: storage,
-  limits: { fileSize: 5 * 1024 * 1024 }, // Max file size of 5MB
+   limits: { fileSize: 5 * 1024 * 1024 }, // Max file size of 5MB
 }).single("image"); // Expecting a single image field named "image"
 
 const foodRouter = express.Router();
