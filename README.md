@@ -2,6 +2,8 @@
 
 This is a **Full Stack Food Ordering Website** built using **React.js**, **MongoDB**, **Express.js**, **Node.js**, and **Stripe**. It includes a user-facing frontend, an admin panel, and a backend API.
 
+---
+
 ## 🚀 Features
 
 - ✅User registration and login (authentication)
@@ -12,6 +14,8 @@ This is a **Full Stack Food Ordering Website** built using **React.js**, **Mongo
 - ✅Admin dashboard to manage food and orders
 - ✅Order status update feature
 
+  ---
+
 ## 🧩 Tech Stack
 
 - **Frontend**: React.js, Vite, Tailwind CSS
@@ -19,12 +23,16 @@ This is a **Full Stack Food Ordering Website** built using **React.js**, **Mongo
 - **Database**: MongoDB Atlas
 - **Payment Gateway**: Stripe
 
+  ---
+
 ## 🛠️ Project Setup
 
 1. **Clone the Repository**
  ```bash
    git clone https://github.com/Farihasiddiqui004/food-delivery-app.git
  ```
+
+---
 
 2. **Backend Setup**
    
@@ -51,6 +59,8 @@ This is a **Full Stack Food Ordering Website** built using **React.js**, **Mongo
  ```bash
   npm run server
  ```
+
+---
 
 3. **Frontend/Admin Setup**
    
