@@ -25,58 +25,85 @@ This is a **Full Stack Food Ordering Website** built using **React.js**, **Mongo
    ```bash
    git clone https://github.com/Farihasiddiqui004/food-delivery-app.git
 
-2. **Backend Setup**
- 📁 Go to the backend folder and install dependencies:
+2. Backend Setup
+📁 Go to the backend folder and install dependencies:
 
-   cd backend
-   npm install
+bash
+Copy
+Edit
+cd backend
+npm install
+🗂️ Create a .env file inside the backend folder and add your environment variables:
 
- 🗂️ Create a .env file in the backend folder and add your environment variables:
+bash
+Copy
+Edit
+MONGO_URI=your_mongodb_uri
+STRIPE_SECRET_KEY=your_stripe_secret
+JWT_SECRET=your_jwt_secret_key
+CLOUDINARY_NAME=your_cloud_name
+CLOUDINARY_API_KEY=your_api_key
+CLOUDINARY_API_SECRET=your_api_secret
+▶️ Start the backend server:
 
-   MONGO_URI=your_mongodb_uri
-   STRIPE_SECRET_KEY=your_stripe_secret
-   JWT_SECRET=your_jwt_secret_key
-   CLOUDINARY_NAME=your_cloud_name
-   CLOUDINARY_API_KEY=your_key 
-   CLOUDINARY_API_SECRET=your_secret
+bash
+Copy
+Edit
+npm run server
+3. Frontend/Admin Setup
+📁 Go to the frontend or admin folder and install dependencies:
 
- ▶️ Start the backend server: 
+bash
+Copy
+Edit
+cd frontend
+npm install
+or
 
-   npm run server
+bash
+Copy
+Edit
+cd admin
+npm install
+🗂️ Create a .env file inside frontend and admin folders:
 
-3. **Frontend/Admin Setup**
-   📁 Go to the frontend/admin folder and install dependencies:
-   
-   cd frontend / cd admin
-   npm install
+bash
+Copy
+Edit
+VITE_BACKEND_URL=https://your-backend-deployment-link.com/api
+▶️ Start frontend/admin server:
 
-  **Frontend/Admin `.env`:**
-  🗂️ Create a .env file in the frontend amd admin folder and add this:
-  
-   VITE_BACKEND_URL = https://your-backend-deployment-link.com/api
-
-▶️ Start frontend/admin: 
-
-   npm run dev
-
-## ⚠️ Important Note
+bash
+Copy
+Edit
+npm run dev
+⚠️ Important Note
 In backend/controllers/orderController.js, if you are using:
-  http://localhost:5173 
-as the frontend URL, please replace it with your deployed frontend URL
-  https://your-frontend.vercel.app
-before pushing to production.
 
-### 📦 Dependencies
- React.js
- Node.js
- Express.js
- MongoDB
- Stripe
+arduino
+Copy
+Edit
+http://localhost:5173
+as the frontend URL, replace it with your deployed frontend URL before production:
 
-## 🔗 Localhost URLs
+arduino
+Copy
+Edit
+https://your-frontend.vercel.app
+📦 Dependencies
+React.js
 
- Part | URL
-Backend | http://localhost:4000
-Frontend | http://localhost:5173
-Admin | http://localhost:5174
- 
+Node.js
+
+Express.js
+
+MongoDB
+
+Stripe
+
+🔗 Localhost URLs
+
+Part	URL
+Backend	http://localhost:4000
+Frontend	http://localhost:5173
+Admin	http://localhost:5174
